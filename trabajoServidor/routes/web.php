@@ -23,7 +23,7 @@ Route::get('/usuarios/{id}','UserController@show')
 Route::get('/usuarios/nuevo','UserController@nuevo');
 
 Route::get('/saludo/{name}/{nickname?}', 'WelcomeUserController' {
-
+//
 });
 
 
