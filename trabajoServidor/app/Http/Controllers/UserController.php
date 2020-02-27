@@ -2,19 +2,88 @@
 
 namespace App\Http\Controllers;
 
+use App\User;
+use App\Profession;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
+use Illuminate\Validation\Rule;
 
 class UserController extends Controller
 {
-    public function index(){
-        return 'Usuarios';
+    public function index()
+    {
+        //$users = DB::table('users')->get();
+        $users = User::all();
 
+        $title = 'Lista de usuarios';
+
+//        return view('users.index')
+//            ->with('users', User::all())
+//            ->with('title', 'Listado de usuarios');
+
+        return view('users.index', compact('title', 'users'));
     }
-    public function show(){
-        return "Mostrando detalle del usuarios: {$id}";
+
+    public function show(User $user)
+    {
+        return view('users.show', compact('user'));
     }
-    public function nuevo(){
-        return "Crear nuevo usuario";
+
+    public function create()
+    {
+        $profession_id = Profession::all();
+        return view('users.create', compact('profession_id'));
     }
-    
+
+    public function store()
+    {
+        $data = request()->validate([
+            'name' => 'required',
+            'email' => ['required', 'email', 'unique:users,email'],
+            'password' => 'required',
+            'profession_id' => 'required',
+        ], [
+            'name.required' => 'El campo nombre es obligatorio'
+        ]);
+
+        User::create([
+            'name' => $data['name'],
+            'email' => $data['email'],
+            'password' => bcrypt($data['password']),
+            'profession_id' => $data['profession_id'],
+        ]);
+
+        return redirect()->route('users.index');
+    }
+
+    public function edit(User $user)
+    {
+        return view('users.edit', ['user' => $user]);
+    }
+
+    public function update(User $user)
+    {
+        $data = request()->validate([
+            'name' => 'required',
+            'email' => ['required', 'email', Rule::unique('users')->ignore($user->id)],
+            'password' => '',
+        ]);
+
+        if ($data['password'] != null) {
+            $data['password'] = bcrypt($data['password']);
+        } else {
+            unset($data['password']);
+        }
+
+        $user->update($data);
+
+        return redirect()->route('users.show', ['user' => $user]);
+    }
+
+    function destroy(User $user)
+    {
+        $user->delete();
+
+        return redirect()->route('users.index');
+    }
 }
