@@ -8,20 +8,15 @@ Aplicación web realizada con laravel.
 Cuenta con 3 CRUD pertenecientes a las entidades siguientes:
 
  - Usuarios
- - Libros
- - Pedidos
+ - Moviles
+ - Portatiles
  
- Tambíen cuenta con un Login con Roles de usuarios de tipo administrador y estudiante.
- 
- - Cuenta para acceder como administrador:
-       - Email: `admin@admin.admin`
-       - Cotraseña: `admin` 
-  - Cuenta para acceder como estudiante:
-       - Email: `estudiante@estudiante.estudiante`
-       - Cotraseña: `estudiante` 
+Tiene dos roles que ven más o menos opciones:
+                                        
+            'email' => 'sup@sup.sup', pass=>'supervisor'
 
+            'name' => 'usuario', 'email' => 'usu@usu.usu',
  
-
 ## Intrucciones
 
 En primer lugar renombramos env.example a env. y modificamos nuestros datos por ejemplo a la base de datos homestead, usuario root y contraseña vacia (en mi caso).
