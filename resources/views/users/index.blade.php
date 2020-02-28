@@ -37,9 +37,9 @@
                             class="oi oi-eye text-dark"></span></a>
                     @if (\Auth::user()->role_id === 1)
                     <a href="{{ route('users.edit', $user) }}" class="btn btn-link"><span
-                            class="oi oi-pencil text-warning"></span></a>
+                            class="oi oi-pencil text-dark"></span></a>
 
-                    <button type="submit" class="btn btn-link"><span class="oi oi-trash text-danger"></span></button>
+                    <button type="submit" class="btn btn-link"><span class="oi oi-trash text-dark"></span></button>
                     @endif
                 </form>
             </td>

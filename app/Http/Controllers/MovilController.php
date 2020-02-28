@@ -39,7 +39,7 @@ class MovilController extends Controller
     public function store(Request $request)
     {
         //
-        $this->validate($request,[ 'nombre'=>'required', 'resumen'=>'required', 'npagina'=>'required', 'edicion'=>'required', 'autor'=>'required', 'npagina'=>'required', 'precio'=>'required']);
+        $this->validate($request,[ 'modelo'=>'required', 'marca'=>'required', 'rom'=>'required', 'ram'=>'required', 'bateria'=>'required', 'precio'=>'required']);
         Movil::create($request->all());
         return redirect()->route('movil.index')->with('success','Registro creado satisfactoriamente');
     }
@@ -78,7 +78,7 @@ class MovilController extends Controller
      */
     public function update(Request $request, $id)    {
         //
-        $this->validate($request,[ 'nombre'=>'required', 'resumen'=>'required', 'npagina'=>'required', 'edicion'=>'required', 'autor'=>'required', 'npagina'=>'required', 'precio'=>'required']);
+        $this->validate($request,[ 'modelo'=>'required', 'marca'=>'required', 'rom'=>'required', 'ram'=>'required', 'bateria'=>'required', 'precio'=>'required']);
 
         Movil::find($id)->update($request->all());
         return redirect()->route('movil.index')->with('success','Registro actualizado satisfactoriamente');

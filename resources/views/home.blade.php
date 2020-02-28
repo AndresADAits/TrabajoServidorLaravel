@@ -20,11 +20,11 @@
                     </div>
                     <br>
                     <div class="m-5">
-                        <a class="btn btn-info" href="{{route('movil.index')}}">Ir a la lista de Libros</a>
+                        <a class="btn btn-info" href="{{route('movil.index')}}">Ir a la lista de Moviles</a>
                     </div>
                     <br>
                     <div class="m-5">
-                        <a class="btn btn-info" href="{{route('portatil.index')}}">Ir a la lista de Pedidos</a>
+                        <a class="btn btn-info" href="{{route('portatil.index')}}">Ir a la lista de Portatiles</a>
                     </div>
 
                 </div>

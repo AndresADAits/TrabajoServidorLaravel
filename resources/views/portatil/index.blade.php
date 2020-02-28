@@ -36,13 +36,13 @@
                 <td>{{$portatil->tgrafica}}</td>
                 <td>{{$portatil->precio}}</td>
                 @if (\Auth::user()->role_id === 1)
-                <td><a class="btn btn-primary btn-xs" href="{{action('PortatilesController@edit', $portatil->id)}}" ><span class="glyphicon glyphicon-pencil"></span></a></td>
+                <td><a class="btn btn-warning btn-lg" href="{{action('PortatilesController@edit', $portatil->id)}}" ><span class="glyphicon glyphicon-pencil"></span></a></td>
                 <td>
                   <form action="{{action('PortatilesController@destroy', $portatil->id)}}" method="post">
                    {{csrf_field()}}
                    <input name="_method" type="hidden" value="DELETE">
 
-                   <button class="btn btn-danger btn-xs" type="submit"><span class="glyphicon glyphicon-trash"></span></button>
+                   <button class="btn btn-danger btn-lg" type="submit"><span class="glyphicon glyphicon-trash"></span></button>
                  </td>
                  @endif
                </tr>

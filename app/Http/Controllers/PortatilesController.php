@@ -15,8 +15,9 @@ class PortatilesController extends Controller
     public function index()
     {
         //
-        $portatiles=Portatiles::orderBy('id','DESC')->paginate(3);
-        return view('portatiles.index',compact('portatiles')); 
+        
+        $portatiles=Portatiles::all();
+        return view('portatil.index',compact('portatiles')); 
     }
 
     /**
@@ -27,7 +28,7 @@ class PortatilesController extends Controller
     public function create()
     {
         //
-        return view('portatiles.create');
+        return view('portatil.create');
     }
 
     /**
@@ -41,16 +42,16 @@ class PortatilesController extends Controller
         //
     $this->validate(
      $request,[ 
-         'usuario'=>'required', 
-         'cantidad'=>'required', 
-         'prioridad'=>'required', 
-         'direccion'=>'required', 
+         'nombre'=>'required', 
+         'marca'=>'required', 
+         'ram'=>'required', 
+         'tgrafica'=>'required', 
          'precio'=>'required', 
          ]);
 
         Portatiles::create($request->all());
 
-        return redirect()->route('portatiles.index')->with('success','Registro creado satisfactoriamente');
+        return redirect()->route('portatil.index')->with('success','Registro creado satisfactoriamente');
     }
 
     /**
@@ -63,7 +64,7 @@ class PortatilesController extends Controller
     {
         //
         $portatiles=Portatiles::find($id);
-        return  view('portatiles.show',compact('portatiles'));
+        return  view('portatil.show',compact('portatiles'));
     }
 
     /**
@@ -76,7 +77,7 @@ class PortatilesController extends Controller
     {
         //
         $portatiles=Portatiles::find($id);
-        return view('portatiles.edit',compact('portatiles'));
+        return view('portatil.edit',compact('portatiles'));
     }
 
     /**
@@ -89,14 +90,14 @@ class PortatilesController extends Controller
     public function update(Request $request, $id)
     {
         //
-   $this->validate($request,[ 'usuario'=>'required',
-    'cantidad'=>'required',
-     'prioridad'=>'required',
-      'direccion'=>'required',
+   $this->validate($request,[ 'nombre'=>'required',
+    'marca'=>'required',
+     'ram'=>'required',
+      'tgrafica'=>'required',
          'precio'=>'required']);
 
         Portatiles::find($id)->update($request->all());
-        return redirect()->route('portatiles.index')->with('success','Registro actualizado satisfactoriamente');
+        return redirect()->route('portatil.index')->with('success','Registro actualizado satisfactoriamente');
 
     }
 
@@ -110,6 +111,6 @@ class PortatilesController extends Controller
     {
                 //
          Portatiles::find($id)->delete();
-        return redirect()->route('portatiles.index')->with('success','Registro eliminado satisfactoriamente');
+        return redirect()->route('portatil.index')->with('success','Registro eliminado satisfactoriamente');
     }
 }

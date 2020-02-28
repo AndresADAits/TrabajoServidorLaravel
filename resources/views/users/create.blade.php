@@ -25,13 +25,13 @@
 
             <div class="form-group">
                 <label for="name">Nombre:</label>
-                <input type="text" class="form-control" name="name" id="name" placeholder="Ricardo Cabrera"
+                <input type="text" class="form-control" name="name" id="name" placeholder="José Andrés Fernández"
                     value="{{ old('name') }}">
             </div>
 
             <div class="form-group">
                 <label for="email">Correo electrónico:</label>
-                <input type="email" class="form-control" name="email" id="email" placeholder="a.ricardocabrera@adaits.es"
+                <input type="email" class="form-control" name="email" id="email" placeholder="andres.fernandez@adaits.es"
                     value="{{ old('email') }}">
             </div>
 

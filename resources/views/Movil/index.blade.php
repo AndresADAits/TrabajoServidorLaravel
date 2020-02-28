@@ -40,7 +40,7 @@
                                     <td>{{$movil->bateria}}</td>
                                     <td>{{$movil->precio}}</td>
                                     @if (\Auth::user()->role_id === 1)
-                                    <td><a class="btn btn-primary btn-xs"
+                                    <td><a class="btn btn-warning btn-lg"
                                             href="{{action('MovilController@edit', $movil->id)}}"><span
                                                 class="glyphicon glyphicon-pencil"></span></a></td>
                                     <td>
@@ -48,7 +48,7 @@
                                             {{csrf_field()}}
                                             <input name="_method" type="hidden" value="DELETE">
 
-                                            <button class="btn btn-danger btn-xs" type="submit"><span
+                                            <button class="btn btn-danger btn-lg" type="submit"><span
                                                     class="glyphicon glyphicon-trash"></span></button>
 
                                     </td>

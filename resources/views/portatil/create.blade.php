@@ -28,39 +28,43 @@
 						<form method="POST" action="{{ route('portatil.store') }}"  role="form">
 							{{ csrf_field() }}
 							<div class="row">
-								<div class="col-xs-6 col-sm-6 col-md-6">
-									<div class="form-group">
+								<div class="col-xs-12 col-sm-10 col-md-8 pt-4">
+									
 										<input type="text" name="nombre" id="nombre" class="form-control input-sm" placeholder="Nombre del portatil">
 									</div>
-								</div>
-								<div class="col-xs-6 col-sm-6 col-md-6">
-									<div class="form-group">
-										<input type="text" name="cmarca" id="cmarca" class="form-control input-sm" placeholder="marca del portatil">
-									</div>
-								</div>
+								
+								<div class="col-xs-12 col-sm-10 col-md-8 pt-4">
+									
+										<input type="text" name="marca" id="marca" class="form-control input-sm" placeholder="marca del portatil">
+								
+							
 							</div>
 
-							<div class="form-group">
+							
+							<div class="col-xs-12 col-sm-10 col-md-8 pt-4">
 								<input type="number" name="ram" id="ram" class="form-control input-sm" placeholder="ram del portatil (1-3)">
 							</div>
-							<div class="row">
-								<div class="col-xs-6 col-sm-6 col-md-6">
-									<div class="form-group">
+							
+							
+								<div class="col-xs-12 col-sm-10 col-md-8 pt-4">
+									
 										<input type="text" name="tgrafica" id="tgrafica" class="form-control input-sm" placeholder="T. Gráfica del portatil">
-									</div>
+									
 								</div>
-								<div class="col-xs-6 col-sm-6 col-md-6">
-									<div class="form-group">
+								<div class="col-xs-12 col-sm-10 col-md-8 pt-4">
+								
 										<input type="number" name="precio" id="precio" class="form-control input-sm" placeholder="Precio">
 									</div>
-								</div>
-							</div>
-							<div class="row">
+								
+							
+							
 
-								<div class="col-xs-12 col-sm-12 col-md-12">
-									<input type="submit"  value="Guardar" class="btn btn-success btn-block">
-									<a href="{{ route('portatil.index') }}" class="btn btn-info btn-block" >Atrás</a>
-								</div>	
+								<div class="col-xs-12 col-sm-12 col-md-12 pt-5">
+									<input type="submit"  value="Guardar" class="btn btn-secondary btn-block">
+									</div>
+									<div class="col-xs-12 col-sm-12 col-md-12 pt-5">
+									<a href="{{ route('portatil.index') }}" class="btn btn-danger btn-block" >Atrás</a>
+									</div>	
 
 							</div>
 						</form>
